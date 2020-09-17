@@ -7,11 +7,19 @@ export default class AutoCompleteText extends React.Component {
 		this.state = {
             suggestions: [],
             text: '',
+            show:false,
+            name: 'Your Name',
 		};
-	}
+    }
+    
+    showModal = () => {
+        this.setState({show:true})
+    }
 
-	//i know i want to filter the list by the user's input
-	//i want to take that selection and put it
+    hideModal = () => {
+        this.setState({show:false})
+    }
+
 	onTextChange = (event) => {
 		const value = event.target.value;
 		let suggestions = [];
@@ -36,18 +44,32 @@ export default class AutoCompleteText extends React.Component {
 		);
 	}
 
-    //
+    
 	suggestionSelection(value) {
 		this.setState(()=> ({
 			text: value,
 			suggestions: [],
         }));
        
-	}
+    }
+    
+    captureName = (event) => {
+        const newName = event.target.value
+        this.setState({
+            name: newName
+        })
+        console.log(this.state.name)
+
+    }
 	render() {
-		const { text } = this.state;
+        const { text } = this.state;
+        const {name} = this.state
 		return (
-			<div>
+			<div id="welcome">
+                <h3>Hi there! Welcome to your education showcase.</h3>
+                <h3>Type your name and click "Enter" below to begin!</h3>
+                <input value={name} /><br></br>
+                <button onClick={this.captureName} id="enter button">Enter</button><br></br>
 				<input value={text} onChange={this.onTextChange} />
                 {this.renderSuggestions()}
 			</div>
