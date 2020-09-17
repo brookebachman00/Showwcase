@@ -1,4 +1,6 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
+import Welcome from './Welcome.js'
 
 export default class AutoCompleteText extends React.Component {
 	constructor(props) {
@@ -58,7 +60,6 @@ export default class AutoCompleteText extends React.Component {
         this.setState({
             name: newName
         })
-        console.log(this.state.name)
 
     }
 	render() {
@@ -68,8 +69,8 @@ export default class AutoCompleteText extends React.Component {
 			<div id="welcome">
                 <h3>Hi there! Welcome to your education showcase.</h3>
                 <h3>Type your name and click "Enter" below to begin!</h3>
-                <input value={name} /><br></br>
-                <button onClick={this.captureName} id="enter button">Enter</button><br></br>
+                <input value={name} onChange={this.captureName} /><br></br>
+                <button id="enter button">Enter</button><br></br>
 				<input value={text} onChange={this.onTextChange} />
                 {this.renderSuggestions()}
 			</div>
