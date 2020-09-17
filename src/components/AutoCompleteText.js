@@ -30,19 +30,19 @@ export default class AutoCompleteText extends React.Component {
 		return (
 			<ul>
 				{suggestions.map((school) => 
-					<li >{school}</li>
+					<li onClick={() => this.suggestionSelection(school)}>{school}</li>
 				)}
 			</ul>
 		);
 	}
 
-
-    //onClick={(school) => this.suggestionSelection(school)}
+    //
 	suggestionSelection(value) {
-		this.setState({
+		this.setState(()=> ({
 			text: value,
 			suggestions: [],
-		});
+        }));
+       
 	}
 	render() {
 		const { text } = this.state;
