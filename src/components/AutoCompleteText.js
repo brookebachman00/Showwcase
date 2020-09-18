@@ -7,18 +7,11 @@ export default class AutoCompleteText extends React.Component {
 		this.state = {
 			suggestions: [],
 			text: '',
-			show: false,
+			
 			name: 'Your Name',
 		};
 	}
 
-	showModal = () => {
-		this.setState({ show: true });
-	};
-
-	hideModal = () => {
-		this.setState({ show: false });
-	};
 
 	onTextChange = (event) => {
 		const value = event.target.value;
@@ -49,23 +42,29 @@ export default class AutoCompleteText extends React.Component {
 		this.setState(() => ({
 			text: value,
 			suggestions: [],
-		}));
+        }));
+        
+        
 	}
 
 	render() {
 		const { text } = this.state;
 		return (
-			<div id="welcome">
-				
-				<h3>Type your name and click "Enter" below to begin!</h3>
-				<input value={this.state.name} onChange={this.captureName} />
-				<br></br>
-				<button id="enter button">Enter</button>
-				<br></br>
-               
+			<div id="welcome"> { this.state.name !== "Your name" ? 
+                <h3>{`Welcome to ${this.props.name}'s education page!`}</h3> : null}
 
+                <button onClick={()=> this.props.changeModal()}>Add new education</button><br></br>
+                {
+                this.props.show === true ? <input value={text} onChange={this.onTextChange}
+                {this.renderSuggestions()} />
+               : null 
+                } 
+                
+				
+               
+{/* 
 				<input value={text} onChange={this.onTextChange} />
-                {this.renderSuggestions()}
+                {this.renderSuggestions()} */}
             
 			</div>
 		);

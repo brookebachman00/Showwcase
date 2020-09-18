@@ -8,7 +8,8 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      schools: []
+      schools: [],
+      show: false,
     }
   }
 
@@ -26,10 +27,21 @@ class App extends Component {
    })
    
   }
+
+
+	changeModal = () => {
+    this.setState({ show: true });
+    console.log(
+      this.state.show
+    )
+	};
+
+
+  
 	render() {
 		return (
 			<div className="App">
-				<Home schools={this.state.schools}></Home>
+				<Home schools={this.state.schools} changeModal={this.changeModal} show={this.state.show}></Home>
 			</div>
 		);
 	}
