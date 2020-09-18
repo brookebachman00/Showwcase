@@ -17,14 +17,15 @@ class App extends Component {
 		const results = [];
 		fetch('http://universities.hipolabs.com/search?name=state')
 			.then((resp) => resp.json())
-			.then((data) =>
+			.then((data) => {
 				data.forEach((element) => {
 					results.push(element.name);
-				})
-			);
-		this.setState({
-			schools: results,
-		});
+				});
+				this.setState({
+					schools: results,
+				});
+			});
+		console.log(this.state.schools);
 	}
 
 	changeModal = () => {

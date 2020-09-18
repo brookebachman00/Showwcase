@@ -40,3 +40,7 @@
 #welcome {
   display: block;
 }
+
+#listSchool {
+  list-style: none;
+}
