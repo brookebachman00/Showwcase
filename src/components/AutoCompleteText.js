@@ -3,7 +3,7 @@ import React from 'react';
 export default class AutoCompleteText extends React.Component {
 	constructor(props) {
 		super();
-		this.schools = ['San Francisco State', 'SFSU'];
+		this.schools = props.schools;
 		this.state = {
 			suggestions: [],
 			text: '',
@@ -45,12 +45,17 @@ export default class AutoCompleteText extends React.Component {
 	render() {
 		const { text } = this.state;
 		return (
-			<div id="welcome">
-				<h3>{`Welcome to ${this.props.name}'s education page!`}</h3>
-				<button onClick={() => this.props.changeModal()}>Add new education {this.renderSuggestions()} </button>
+            <>
+            <h3>{`Welcome to ${this.props.name}'s education page!`}</h3>
+            <button onClick={() => this.props.changeModal()}>Add new education {this.renderSuggestions()} </button>
 				<br></br>
 				{this.props.show === true ? <input value={text} onChange={this.onTextChange} /> : null}
+			<div id="welcome">
+				
+                <div id="sidePanel"> Education Added</div>
+				
 			</div>
+            </>
 		);
 	}
 }

@@ -38,7 +38,18 @@
 }
 
 #welcome {
-  display: block;
+  display: grid;
+  align-content: space-around;
+  padding: 40px;
+  grid-template-columns: 1fr 3fr;
+  
+}
+
+#sidePanel {
+  padding: 20px;
+  background-color: gray;
+  height: 500px;
+  font-weight:  bold;
 }
 
 #listSchool {

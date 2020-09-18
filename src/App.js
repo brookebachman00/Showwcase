@@ -9,34 +9,41 @@ class App extends Component {
 		super();
 		this.state = {
 			schools: [],
-			show: false,
+      show: false,
+      schoolNames: []
 		};
 	}
 
 	componentDidMount() {
-		const results = [];
+
 		fetch('http://universities.hipolabs.com/search?name=state')
 			.then((resp) => resp.json())
 			.then((data) => {
-				data.forEach((element) => {
-					results.push(element.name);
-				});
 				this.setState({
-					schools: results,
+					schools: data,
 				});
 			});
-		console.log(this.state.schools);
-	}
+
+  }
+  
+  justNames = () => {
+    const names =  this.state.schools.forEach(element => { names.push(element.name)
+    this.setState({
+      schoolNames: names
+        
+      });
+    })
+  }
 
 	changeModal = () => {
 		this.setState({ show: true });
-		console.log(this.state.show);
 	};
 
 	render() {
+    console.log(this.state.schools)
 		return (
 			<div className="App">
-				<Home schools={this.state.schools} changeModal={this.changeModal} show={this.state.show}></Home>
+				<Home schools={this.state.schoolNames} changeModal={this.changeModal} show={this.state.show}></Home>
 			</div>
 		);
 	}
