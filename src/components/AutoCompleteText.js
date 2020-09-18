@@ -1,4 +1,5 @@
 import React from 'react';
+import Background from './Background.js'
 
 export default class AutoCompleteText extends React.Component {
 	constructor(props) {
@@ -47,13 +48,15 @@ export default class AutoCompleteText extends React.Component {
 		return (
             <>
             <h3>{`Welcome to ${this.props.name}'s education page!`}</h3>
-            <button onClick={() => this.props.changeModal()}>Add new education {this.renderSuggestions()} </button>
+            <button id="add-edu" onClick={() => this.props.changeModal()}>Add new education {this.renderSuggestions()} </button>
 				<br></br>
 				{this.props.show === true ? <input value={text} onChange={this.onTextChange} /> : null}
 			<div id="welcome">
 				
-                <div id="sidePanel"> Education Added</div>
-				
+                <div id="sidePanel"> Education Added
+                <Background text={this.state.text} />
+				</div>
+                <div id="school-info">Info</div>
 			</div>
             </>
 		);

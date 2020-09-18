@@ -36,10 +36,21 @@
     transform: rotate(360deg);
   }
 }
+@media(max-width){
+  #welcome {
+    display: block;
+  }
+ 
+}
+#name-box{
+  padding: 6px;
+  border:1px solid black;
+  box-shadow: gray;
+}
 
 #welcome {
   display: grid;
-  align-content: space-around;
+  align-content: space-between;
   padding: 40px;
   grid-template-columns: 1fr 3fr;
   
@@ -47,11 +58,28 @@
 
 #sidePanel {
   padding: 20px;
-  background-color: gray;
+  background-color: rgb(182, 177, 177);
   height: 500px;
   font-weight:  bold;
+  border: 10px solid white;
 }
-
+#add-edu {
+  padding: 10px;
+  background-color: rgb(182, 177, 177);
+  border-color: white;
+}
 #listSchool {
   list-style: none;
+}
+
+#schools {
+  font-size: 14px;
+}
+
+#school-info {
+  padding: 20px;
+  background-color: rgb(182, 177, 177);
+  height: 500px;
+  font-weight:  bold;
+  border: 10px solid white;
 }
