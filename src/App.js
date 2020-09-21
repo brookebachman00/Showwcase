@@ -23,27 +23,21 @@ class App extends Component {
 					schools: data,
 				});
 			});
+	
 
   }
   
-  justNames = () => {
-    const names =  this.state.schools.forEach(element => { names.push(element.name)
-    this.setState({
-      schoolNames: names
-        
-      });
-    })
-  }
+  
 
 	changeModal = () => {
 		this.setState({ show: true });
 	};
 
 	render() {
-    console.log(this.state.schools)
+
 		return (
 			<div className="App">
-				<Home schools={this.state.schoolNames} changeModal={this.changeModal} show={this.state.show}></Home>
+				<Home schools={this.state.schools} changeModal={this.changeModal} show={this.state.show}></Home>
 			</div>
 		);
 	}
